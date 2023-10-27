@@ -8,7 +8,7 @@
   "props": [
     {
       "name": "url",
-      "displayName": "URL of Song",
+      "displayName": "URL of Song!!!",
       "type": "text"
     },
     {
@@ -52,6 +52,11 @@
       "name": "endAction",
       "displayName": "Actions when song ends",
       "type": "action"
+    },
+    {
+      "name": "littlebeatTest",
+      "displayName": "littlebeatTest",
+      "type": "text"
     }
   ],
   "childComponents": [

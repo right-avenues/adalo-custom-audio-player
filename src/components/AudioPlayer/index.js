@@ -10,7 +10,7 @@ Number.prototype.round = function(places) {
 class AudioPlayer extends Component {
   constructor(props) {
     super(props)
-    const { url, title, subtitle, artwork } = props
+    const { url, title, subtitle, artwork, littlebeatTest } = props
     this.state = {
       // Controls play/pause buttons, as well as playback
       playing: false,
@@ -32,6 +32,7 @@ class AudioPlayer extends Component {
         artwork: artwork.artworkURL,
       },
       width: null,
+      
     }
   }
 
