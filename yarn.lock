@@ -7,7 +7,7 @@
   resolved "https://registry.yarnpkg.com/@aashutoshrathi/word-wrap/-/word-wrap-1.2.6.tgz#bd9154aec9983f77b3a034ecaa015c2e4201f6cf"
   integrity sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA==
 
-"@adalo/cli@0.0.52":
+"@adalo/cli@0.0.50":
   version "0.0.52"
   resolved "https://registry.yarnpkg.com/@adalo/cli/-/cli-0.0.52.tgz#251e4cca13ae7bdd304701b76c44b96f6ed49aab"
   integrity sha512-OQv2UJQoCwqDOUxD/XgSFEcF28WSXdoXGsiPHK+lum+Kjeo3Lxpdr8OWkT7qTSiGyCwmdp+zmKcK39O5grpPNQ==
