@@ -1,16 +1,16 @@
-import React, { Component } from 'react'
+import React, { Component, useEffect } from 'react'
 import { Text, View, Image, StyleSheet } from 'react-native'
 import AudioPlayerSub from './AudioPlayer'
 import ControlScheme from './ControlScheme'
 
-Number.prototype.round = function(places) {
+Number.prototype.round = function (places) {
   return +(Math.round(this + 'e+' + places) + 'e-' + places)
 }
 
 class AudioPlayer extends Component {
   constructor(props) {
     super(props)
-    const { url, title, subtitle, artwork, littlebeatTest } = props
+    const { url, title, subtitle, artwork } = props
     this.state = {
       // Controls play/pause buttons, as well as playback
       playing: false,
@@ -32,7 +32,21 @@ class AudioPlayer extends Component {
         artwork: artwork.artworkURL,
       },
       width: null,
-      
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    const { isPlaying } = this.props
+    if (prevProps.isPlaying !== isPlaying) {
+      if (isPlaying == '0') {
+        this.setState({
+          playing: false,
+        })
+      } else {
+        this.setState({
+          playing: true,
+        })
+      }
     }
   }
 
@@ -137,7 +151,7 @@ class AudioPlayer extends Component {
   }
 
   // Generalized seek method. Used by progressbar to seek to any place
-  seek = newProgress => {
+  seek = (newProgress) => {
     // Uses refs to tell audio player to seek
     this.audioPlayer.seek(newProgress)
     // Update progress and played
@@ -146,23 +160,23 @@ class AudioPlayer extends Component {
     this.setState({ played: newPlayed, progress: newProgress })
   }
 
-  updateDuration = duration => {
+  updateDuration = (duration) => {
     this.setState({ duration })
   }
-  updateProgress = newProgress => {
+  updateProgress = (newProgress) => {
     this.setState({ progress: newProgress })
   }
-  updatePlayed = played => {
+  updatePlayed = (played) => {
     this.setState({ played })
   }
 
-  updatePlaying = bool => {
+  updatePlaying = (bool) => {
     this.setState({ playing: bool })
   }
-  updatePlayable = bool => {
+  updatePlayable = (bool) => {
     this.setState({ playable: bool })
   }
-  updatePrevProgress = newProgress => {
+  updatePrevProgress = (newProgress) => {
     this.setState({ prevProgress: newProgress })
   }
 
@@ -173,7 +187,7 @@ class AudioPlayer extends Component {
 
   // Declares ref to audio player component. Enables index.js to do playback
   // control on the audio player subcomponent
-  ref = audioPlayer => {
+  ref = (audioPlayer) => {
     this.audioPlayer = audioPlayer
   }
 
@@ -197,6 +211,7 @@ class AudioPlayer extends Component {
       topScreen,
       // whether to pause when changing away from audio player screens
       keepPlaying,
+      isPlaying,
     } = this.props
     const { width, track } = this.state
 
@@ -206,7 +221,9 @@ class AudioPlayer extends Component {
     // The URL is usually unavailable in the editor, which doesn't cause any harm, so
     // allow the audio player to load in that context.
     if (!editor && !track?.url) {
-      return <Text>Unable to load audio player, audio track URL unavailable.</Text>
+      return (
+        <Text>Unable to load audio player, audio track URL unavailable.</Text>
+      )
     }
 
     const artworkWidth = (width * artwork.artworkPercent) / 100
@@ -344,6 +361,7 @@ class AudioPlayer extends Component {
                   typeof keepPlaying !== 'undefined' ? keepPlaying : true
                 }
                 key={`key.${JSON.stringify(track)}`}
+                isPlaying={isPlaying}
               />
               <ControlScheme {...buttonConfig} {...this.state} />
             </View>
@@ -389,6 +407,7 @@ class AudioPlayer extends Component {
                   typeof keepPlaying !== 'undefined' ? keepPlaying : true
                 }
                 key={`key.${JSON.stringify(track)}`}
+                isPlaying={isPlaying}
               />
               {title != '' ? (
                 <Text style={dynamicStyles.title}>{title}</Text>
@@ -447,6 +466,7 @@ class AudioPlayer extends Component {
                   typeof keepPlaying !== 'undefined' ? keepPlaying : true
                 }
                 key={`key.${JSON.stringify(track)}`}
+                isPlaying={isPlaying}
               />
             </View>
           )}

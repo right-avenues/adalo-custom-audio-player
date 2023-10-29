@@ -31,7 +31,7 @@ class AudioPlayerSub extends Component {
       compactCapabilities: [Capability.Play, Capability.Pause],
     })
 
-    const { track, playing, autoplay, updatePlaying } = this.props
+    const { track, playing, autoplay, updatePlaying, isPlaying } = this.props
 
     if ((await TrackPlayer.getState()) === State.Paused && autoplay) {
       await TrackPlayer.reset()
@@ -71,7 +71,7 @@ class AudioPlayerSub extends Component {
 
   // Generic seeking function used by index to handle skip and rewind.
   // Custom seeking is handled by ProgressBar on mobile
-  seek = newProgress => {
+  seek = (newProgress) => {
     const { duration } = this.props
     const seekTime = newProgress * duration
     TrackPlayer.seekTo(seekTime)
@@ -93,6 +93,7 @@ class AudioPlayerSub extends Component {
       duration,
       autoplay,
       keepPlaying,
+      isPlaying,
     } = this.props
 
     const oldTrack = await TrackPlayer.getTrack(0)
@@ -159,14 +160,8 @@ class AudioPlayerSub extends Component {
   }
 
   shouldComponentUpdate(nextProps) {
-    const {
-      active,
-      progress,
-      playing,
-      updatePrevProgress,
-      updatePlaying,
-    } = this.props
-
+    const { active, progress, playing, updatePrevProgress, updatePlaying } =
+      this.props
     // when changing screens
     if (active && !nextProps.active) {
       // pause track if needed
@@ -184,7 +179,6 @@ class AudioPlayerSub extends Component {
   // When props change
   componentDidUpdate(prevProps) {
     const { playing } = this.props
-
     this.checkTrack(prevProps)
 
     // Update play/pause if it changed
@@ -193,7 +187,7 @@ class AudioPlayerSub extends Component {
     }
   }
 
-  updatePlaying = playing => {
+  updatePlaying = (playing) => {
     const { updatePlaying: updatePlayingProp } = this.props
     if (playing) {
       TrackPlayer.play()

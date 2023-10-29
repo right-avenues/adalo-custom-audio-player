@@ -10,5 +10,7 @@
     }
   ],
   "iosInstallScript": "./scripts/install_ios.sh",
-  "androidInstallScript": "./scripts/install_android.sh"
+  "androidInstallScript": "./scripts/install_android.sh",
+  "demoAppURL": "https://www.google.com/?client=safari",
+  "supportURL": "https://littlebeat.io"
 }

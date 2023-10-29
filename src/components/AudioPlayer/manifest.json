@@ -1,5 +1,5 @@
 {
-  "displayName": "Audio Player",
+  "displayName": "Custom Audio Player",
   "defaultWidth": 300,
   "defaultHeight": 450,
   "resizeY": true,
@@ -54,8 +54,8 @@
       "type": "action"
     },
     {
-      "name": "littlebeatTest",
-      "displayName": "littlebeatTest",
+      "name": "isPlaying",
+      "displayName": "Is Audio Playing?",
       "type": "text"
     }
   ],
