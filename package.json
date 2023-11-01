@@ -19,7 +19,7 @@
   "peerDependencies": {},
   "adalo": {
     "logo": "./logo.png",
-    "displayName": "Custom Audio Player",
+    "displayName": "Custom Audio Player V2",
     "components": [
       {
         "name": "CustomAudioPlayer",
@@ -56,7 +56,7 @@
     "moment": "^2.26.0",
     "react-native-swift": "^1.2.3",
     "react-native-track-player": "^2.1.4",
-    "react-native-vector-icons": "^6.6.0",
+    "react-native-vector-icons": "^7.0.0",
     "uuid": "^3.0.0"
   }
 }

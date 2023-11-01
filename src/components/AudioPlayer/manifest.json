@@ -1,5 +1,5 @@
 {
-  "displayName": "Custom Audio Player",
+  "displayName": "Custom Audio Player V2",
   "defaultWidth": 300,
   "defaultHeight": 450,
   "resizeY": true,
@@ -55,7 +55,7 @@
     },
     {
       "name": "isPlaying",
-      "displayName": "Is Audio Playing?",
+      "displayName": "Is Audio Playing???",
       "type": "text"
     }
   ],
