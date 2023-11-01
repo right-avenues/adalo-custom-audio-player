@@ -1,6 +1,6 @@
 {
   "name": "custom-audio-player",
-  "version": "1.5.10",
+  "version": "1.5.13",
   "license": "MIT",
   "author": "Littlebeat",
   "main": "index.js",
