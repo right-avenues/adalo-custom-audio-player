@@ -55,7 +55,7 @@
     },
     {
       "name": "isPlaying",
-      "displayName": "Is Audio Playing???",
+      "displayName": "Is Audio Playing?",
       "type": "text"
     }
   ],
