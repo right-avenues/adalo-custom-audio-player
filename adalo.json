@@ -1,16 +1,17 @@
 {
-  "author": "Adalo",
+  "author": "Littlebeat",
   "description": "Play any audio file stored in Adalo or via external URL. Great for music, podcasts, etc.",
   "logo": "./logo.png",
-  "displayName": "Audio Player",
+  "displayName": "LB Audio Player",
   "components": [
     {
-      "name": "AudioPlayer",
+      "name": "LBAudioPlayer",
       "manifest": "./src/components/AudioPlayer/manifest.json"
     }
   ],
   "iosInstallScript": "./scripts/install_ios.sh",
   "androidInstallScript": "./scripts/install_android.sh",
-  "demoAppURL": "https://www.google.com/?client=safari",
-  "supportURL": "https://littlebeat.io"
+  "demoAppURL": "https://little-beats-team.adalo.com/little-beat",
+  "supportURL": "https://littlebeat.io",
+  "requiresThirdPartySubscription": false
 }

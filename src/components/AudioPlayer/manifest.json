@@ -8,7 +8,7 @@
   "props": [
     {
       "name": "url",
-      "displayName": "URL of Song!!!",
+      "displayName": "URL temp",
       "type": "text"
     },
     {

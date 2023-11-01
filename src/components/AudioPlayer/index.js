@@ -3,7 +3,7 @@ import { Text, View, Image, StyleSheet } from 'react-native'
 import AudioPlayerSub from './AudioPlayer'
 import ControlScheme from './ControlScheme'
 
-Number.prototype.round = function (places) {
+Number.prototype.round = function(places) {
   return +(Math.round(this + 'e+' + places) + 'e-' + places)
 }
 
@@ -151,7 +151,7 @@ class AudioPlayer extends Component {
   }
 
   // Generalized seek method. Used by progressbar to seek to any place
-  seek = (newProgress) => {
+  seek = newProgress => {
     // Uses refs to tell audio player to seek
     this.audioPlayer.seek(newProgress)
     // Update progress and played
@@ -160,23 +160,23 @@ class AudioPlayer extends Component {
     this.setState({ played: newPlayed, progress: newProgress })
   }
 
-  updateDuration = (duration) => {
+  updateDuration = duration => {
     this.setState({ duration })
   }
-  updateProgress = (newProgress) => {
+  updateProgress = newProgress => {
     this.setState({ progress: newProgress })
   }
-  updatePlayed = (played) => {
+  updatePlayed = played => {
     this.setState({ played })
   }
 
-  updatePlaying = (bool) => {
+  updatePlaying = bool => {
     this.setState({ playing: bool })
   }
-  updatePlayable = (bool) => {
+  updatePlayable = bool => {
     this.setState({ playable: bool })
   }
-  updatePrevProgress = (newProgress) => {
+  updatePrevProgress = newProgress => {
     this.setState({ prevProgress: newProgress })
   }
 
@@ -187,7 +187,7 @@ class AudioPlayer extends Component {
 
   // Declares ref to audio player component. Enables index.js to do playback
   // control on the audio player subcomponent
-  ref = (audioPlayer) => {
+  ref = audioPlayer => {
     this.audioPlayer = audioPlayer
   }
 
